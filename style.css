@@ -1,0 +1,15 @@
+.main{
+display: flex;
+justify-content: center;
+gap: 10px;
+
+}
+.box{
+    width: 200px;
+    height: 100px;
+    background-color: rgb(215, 207, 207);
+    color: red;
+    border: 1px solid black;
+    border-radius: 15px;
+    
+}

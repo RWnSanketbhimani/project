@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <input type="text" placeholder="enter your total amount" id="totleAmount" />
+    <input type="text" placeholder="monthly EMI" id="monthlyEmi" />
+    <input type="text" placeholder="Duration" id="duration" />
+    <button onclick="calculate()">find</button>
+
+    <h2 id="output"></h2>
+
+    <div class="main"></div>
+  </body>
+
+  <script>
+    function calculate() {
+      var totleAmount = document.getElementById("totleAmount").value;
+      var monthlyEmi = document.getElementById("monthlyEmi").value;
+      var duration = document.getElementById("duration").value;
+
+      // console.log(totleAmount , monthlyEmi , duration);
+
+      var paidAmount = monthlyEmi * duration;
+
+      if (paidAmount >= totleAmount) {
+        var difference = paidAmount - totleAmount;
+        var intrest = (difference / totleAmount) * 100;
+
+        // document.getElementById("output").innerHTML=`totle amount ${totleAmount} , paid amount ${paidAmount} , totle emi ${monthlyEmi} , duration ${duration} , intrest ${intrest}% `
+        document.querySelector(".main").innerHTML = ` 
+            <div class="box">totleAmount=${totleAmount}</div>
+            <div class="box">paid amount=${paidAmount}</div>
+            <div class="box">totle emi=${monthlyEmi}</div>
+            <div class="box"> duration=${duration}</div>
+            <div class="box">intrest=${intrest}</div>`;
+
+        // console.log("intrest = ",intrest);
+      } else {
+        document.getElementById("output").innerHTML = "paisa aur do...";
+      }
+
+      // console.log(paidAmount , difference);
+    }
+  </script>
+</html>
